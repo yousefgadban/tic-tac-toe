@@ -46,6 +46,7 @@
     border: 1px solid #2196f3;
     padding: 10px 20px;
     border-radius: 10px;
+    cursor: pointer;
     /* animation: startBtn-animation 2s linear infinite; */
 }
 

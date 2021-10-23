@@ -85,17 +85,18 @@ export default class Board extends React.Component {
         if (position === 0) {
             this.previousActions = [];
             this.previousActionsList = [];
+            this.previousActions.push(''+[-5, -5, -5, -5, -5, -5, -5, -5, -5]);
         } else {
             let length = this.previousActions.length;
-            for (let j = 0; j < (length - position - 1); j++) {
+            for (let j = 0; j < (length - position - 1 ); j++) {
                 this.previousActions.pop();
-            }
-    
-            this.previousActionsList = this.previousActions.map((element, i) => {
-                let move = i === 0 ? 'Go to start' : `Move ${i}` 
-                return <div  className="undo-item" key={i} data-undo-position={i} data-undo-state={element} onClick={(e) => {this.onUndoClicked(e)}}>{move}</div>
-            });
+            }    
         }
+        
+        this.previousActionsList = this.previousActions.map((element, i) => {
+            let move = i === 0 ? 'Go to start' : `Move ${i}` 
+            return <div style={{display: (i === this.previousActions.length -1) ? 'none' : 'block'}} className="undo-item" key={i} data-undo-position={i} data-undo-state={element} onClick={(e) => {this.onUndoClicked(e)}}>{move}</div>
+        });
 
         this.setState({currentGame: undoArr, turn: turn, cells: [], steps: position});
         setTimeout(() => {
@@ -119,7 +120,7 @@ export default class Board extends React.Component {
           
             this.previousActionsList = this.previousActions.map((element, i) => {
                 let move = i === 0 ? 'Go to start' : `Move ${i}` 
-                return <div className="undo-item" key={i} data-undo-position={i} data-undo-state={element} onClick={(e) => {this.onUndoClicked(e)}}>{move}</div>
+                return <div style={{display: (i === this.previousActions.length -1) ? 'none' : 'block'}} className="undo-item" key={i} data-undo-position={i} data-undo-state={element} onClick={(e) => {this.onUndoClicked(e)}}>{move}</div>
             });
 
             this.setState({turn: this.state.turn === 'x' ? 'o' : 'x', steps: this.state.steps + 1, currentGame: currentGameArr, previousActions: previousActionsArr });
