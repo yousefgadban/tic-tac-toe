@@ -1,13 +1,200 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.main {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.newGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.title {
+    color: #2196f3;
+    font-size: 42px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.winner {
+    color: #2196f3;
+    font-size: 36px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.startBtn {
+    color: white;
+    background-color: #2196f3;
+    border: 1px solid #2196f3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /* animation: startBtn-animation 2s linear infinite; */
+}
+
+.tic-tac-img {
+    
+    width: 100px;
+    height: 100px;
+  
+    /* animation: tic-tac-animation 5s linear infinite; */
+}
+
+.aboard {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.acell {
+    border: 1px solid #2196f3;
+    width: 50px;
+    height: 50px;
+}
+
+
+.acell:nth-child(1) {
+    border-top: none;
+    border-left: none;
+}
+.acell:nth-child(2) {
+    border-top: none;
+    border-right: none;
+}
+.acell:nth-child(3) {
+    border-bottom: none;
+    border-left: none;
+}
+.acell:nth-child(4) {
+    border-bottom: none;
+    border-right: none;
+}
+
+
+.ax {
+    background: url('./images/small-close.png');
+    animation: ax-animation 3s linear 1s infinite;
+}
+
+.ao {
+    background: url('./images/small-circle.png');
+    animation: ax-animation 3s linear 2s infinite;
+}
+
+
+@keyframes startBtn-animation {
+    0% {
+        padding: 10px 20px;
+    }
+    50% {
+        padding: 20px 30px;
+    }
+    100% {
+        padding: 10px 20px;
+    }
+}
+
+@keyframes tic-tac-animation {
+    0% {
+        background: url('./images/close.png');
+        opacity: 1;
+    }
+    25% {
+        background: url('./images/close.png');
+        opacity: 0;
+    }
+    27% {
+        background: url('./images/circle.png');
+    }
+    50% {
+        background: url('./images/circle.png');
+        opacity: 1;
+    }
+    75% {
+        background: url('./images/circle.png');
+        opacity: 0;
+    }
+    77% {
+        background: url('./images/close.png');
+    }
+    100% {
+        background: url('./images/close.png');
+        opacity: 1;
+    }
+}
+
+@keyframes ax-animation {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+ /* -------------------------------------------------- MEDIA QUERIES ------------------------------------------------ */
+
+/* Smartphones */
+@media only screen and (max-width: 500px) {
+
+    .main {
+        width: 100vw;
+    }
+
+    
+}
+
+/* Tablet */
+@media(min-width: 501px) and (max-width: 768px) {
+    .main {
+        width: 100vw;
+    }
+}
+
+
+
+/* Normal */
+@media(min-width: 769px) and (max-width: 1200px) {
+ 
+}
+
+/* Widescreen */
+@media(min-width: 1201px) {
+  
+}
+
+/* Landscape */
+@media(max-height: 500px) {
+    
+    .tic-tac-img {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    }
+
+   
+
 }
